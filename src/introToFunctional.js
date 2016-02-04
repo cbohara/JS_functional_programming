@@ -121,8 +121,8 @@ bookstoreApp.filterByCategory = function(bookStore, category){
 	var categoryMatch = [];
 	for(var i = 0; i < bookStore.length; i++){
 	// use checkBookCategory to check each book in our Bookstore 
-	// if the bookstore book's category matched the user input category, 
-	// then add the book to return new array
+	// if the bookstore book's category matches the user input category, 
+	// then add the book to and return the categoryMatch array
 		if(bookstoreApp.checkBookCategory(bookStore[i].category,category)){
 			categoryMatch.push(bookStore[i]);
 		}
@@ -147,12 +147,30 @@ PS: You can use 'JL Carr' as a test input for your search.
 */
 
 bookstoreApp.checkAuthor = function(book, author){
-
+	// return boolean to determine if the books author matches the 
+	// user input category
+	if(book.author === author)
+		return true;
+	else
+		return false;
+ 
 };
 
-bookstoreApp.filterByAuthor = function(bookstore, author) {
+bookstoreApp.filterByAuthor = function(bookStore, author) {
+	// 									^had to fix capitalization
+	// create new array that will contain the bookstore books that match the
+	// author the user is searching for
+	var authorMatch = [];
+	for(var i = 0; i < bookStore.length; i++){
+	// use checkAuthor to check each book in our Bookstore 
+	// if the bookstore book's author matches the user input category, 
+	// then add the book to and return the authorMatch array
+		if(bookstoreApp.checkAuthor(bookStore[i].author,author)){
+			authorMatch.push(bookStore[i]);
+		}
+	}
+	return authorMatch;
 };
-
 
 /* 
 

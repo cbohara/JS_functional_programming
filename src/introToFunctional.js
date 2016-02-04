@@ -183,14 +183,29 @@ bookstoreApp.checkRange should take two numbers and a book, and will return a bo
 bookstoreApp.filterByRange should use checkRange to return new list w/ books that are inside of the range.
 
 */
-
 bookstoreApp.checkRange = function(book, lowerEnd, upperEnd){
-  
+	// if the book price is within the users price range, return true
+	if(lowerEnd <= book.price && upperEnd >= book.price)
+		return true;
+	else
+		return false;
 };
 
 
-bookstoreApp.filterByRange = function(bookstore, lowerEnd, upperEnd){
-
+bookstoreApp.filterByRange = function(bookStore, lowerEnd, upperEnd){
+	// 									^fixed capitalization
+	// create new array that will contain the bookstore books that are within
+	// the users price range
+	var priceRangeMatch = [];
+	for(var i = 0; i < bookStore.length; i++){
+	// use checkRange to check each book in our Bookstore 
+	// if the bookstore book's price is within the users price range, 
+	// then add the book to and return the priceRangeMatch array
+		if(bookstoreApp.checkRange(bookStore[i].price,lowerEnd,upperEnd)){
+			priceRangeMatch.push(bookStore[i]);
+		}
+	}
+	return priceRangeMatch;
 };
 
 }());

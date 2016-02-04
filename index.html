@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title>Book Store Application</title>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="assets/bookstoreData.js"></script>
+    <script src="src/introToFunctional.js"></script>
+    <script src="assets/bookstoreApplication.js"></script>
+</head>
+<body class="container">
+	<nav class="navbar navbar-default">
+  	
+  	<div class="container-fluid">
+    
+    <div class="navbar-header">
+      <a class="navbar-brand">TGP+ Bookstore</a>
+    </div>
+    
+    <div class="collapse navbar-collapse">
+      		<ul class="nav navbar-nav navbar-right" id="insertNodes">
+				<div class="dropdown">
+  					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Cart
+  					<span class="caret"></span></button>
+  					<ul class="dropdown-menu" id="cart">
+  					</ul>
+  					<button class="btn btn-primary" id="empty-cart">Empty Cart</button>
+				</div>
+      	 	</ul>
+  		</div>
+	</nav>
+    
+    <ul>
+	<div id="filterSection">
+	  <div class="filters">
+		<form id='categoryForm' class="form-inline">
+		  <select name="categories" class="form-control">
+  		   <option value="horror">Horror</option>
+           <option value="classic">Classic</option>
+           <option value="romantic comedy">RomCom</option>
+           <option value="self help">Self-Help</option>
+           <option value="historical">Historical</option>
+           </select>
+    	   <button id="categoryFilter" class="btn btn-default">Search Categories</button>
+		</form>
+	   </div>
+
+	   <div class="filters">
+		 <form id='authorForm' class="form-inline">
+		  <input class="form-control" type='text' placeholder="insert an author"></input>
+	      <button id="authorButton" class='btn btn-default'>Search by Author</button>
+		 </form>
+	   </div>
+
+
+	   <div class="filters">
+		 <form id='priceRange' class="form-inline">
+		   <input type='number' id='range1' placeholder='lowest price' class="form-control"></input>
+		   <input type='number' id='range2' placeholder='highest price' class="form-control"></input>
+	       <button id="priceRangeButton" class="btn btn-default">Search by Price Range</button>
+		 </form>
+	   </div>
+	</ul>
+
+	</div>
+
+	
+	<div class="container">
+		<h2>Current Book List</h2>
+		<div id="bookList" class="list-group"></div>
+
+	</div>
+    
+</body>
+</html>

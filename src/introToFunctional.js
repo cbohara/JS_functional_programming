@@ -29,65 +29,27 @@ addBookToCart will search through the Bookstore for the book with the matching t
 
 emptyCart will first check to see if the users cart is empty, if so, alert them that there are no books in the cart. If not, empty every element out of the cart (use a while loop if you are brave). Make sure to return the users cart.
 
+deleteFromCart will go through the users cart and check whether the input title matches any of the books. If the input title does match, take that element out of the cart and return it to the user.
+
 */
 
 
 bookstoreApp.subtractBookPrice = function(user, book){
-  // check the user balance to make sure they have enough $$ to buy the book
-  if (user.balance > book.price) {
-  // if the balance is larger than the price, subtract the price from the users balance.
-    user.balance = user.balance - book.price;
-  } else {
-    // else, alert the user that they don't have enough money to buy the book.
-    alert("you don't have enough money to make this happen...");
-  }
-  // return the users balance
-  return user.balance;
+ 
 };
 
 
 bookstoreApp.addBookToCart = function(user, bookStore, bookTitle){
-  // loop through the bookStore array
-  for (var i = 0; i < bookStore.length; i++){
-    // check each books title against the bookTitle
-    if (bookStore[i].title === bookTitle){
-      // if the title of the book matches the input title push the current book to the users cart.
-      user.cart.push(bookStore[i]);
-      // user your subtractBookPrice function to subtract the price of the current book from the users balance.
-      bookstoreApp.subtractBookPrice(user, bookStore[i]);
-    }
-  }
-
-  return user.cart
 };
 
 
 bookstoreApp.emptyCart = function(user){
-  // first let's check to see whether the users cart is empty
-  if(user.cart.length === 0){
-    // if so, alert the user that there are no books in their cart.
-    alert('there are no books in your cart');
 
-  } else {
-    // if not, use a 'while loop' (look this up) and .pop to get rid of every book in the cart.
-    while(user.cart.length > 0) {
-      user.cart.pop();
-    }
-    // return the cart to the user
-    return user.cart;
-  }
 };
 
 
 bookstoreApp.deleteFromCart = function(user, bookTitle){
-  for (var i = 0; i < user.cart.length; i++) {
-    if (user.cart[i].title === bookTitle){
-        var nextVal = i + 1
-        var deletedEl = user.cart.splice(i, nextVal)[0];
-    } 
-  }
-
-  return deletedEl
+ 
 };
 
 
@@ -106,40 +68,12 @@ filterByCategory will then use checkBookCategory to check each book in our Books
 */
 
 bookstoreApp.checkBookCategory = function(book, category){
-    // check to see if the category in the book matches the input category
-    if (book['category'] === category) {
-      // return true if so
-      return true;
-    } else {
-      // if not, return false.
-      return false;
-    }
-
+ 
 };
-
-// create test case;
-var testBook = Bookstore[0];
-// create a test you know will pass (all categories are randomized so you'll need this);
-var passCategory = testBook['category'];
-// make the test
-var checkBookCategoryTest = bookstoreApp.checkBookCategory(testBook, passCategory);
-// console lock it out
-console.log(checkBookCategoryTest); // should return true;
 
 
 bookstoreApp.filterByCategory = function(bookStore, category){
-  // create a filteredList array that will store books that match our category.
-  var filteredList = [];
-  // loop through the bookStore array
-  for (var i = 0; i < bookStore.length; i++) {
-    // use our checkBookCategory function to check each books category against the input category
-    if (bookstoreApp.checkBookCategory(bookStore[i], category)) {
-      // if it passes, push the current book into the filteredList
-      filteredList.push(bookStore[i]);
-    }
-  }
-  // after going through each book, return the filteredList to the user
-  return filteredList;
+
 };
 
 
@@ -160,26 +94,10 @@ PS: You can use 'JL Carr' as a test input for your search.
 */
 
 bookstoreApp.checkAuthor = function(book, author){
-    // check to see if the author in the book matches the input author
-    if (book['author'] === author) {
-      // return true if so
-      return true;
-    } else {
-      // if not, return false.
-      return false;
-    }
+
 };
 
 bookstoreApp.filterByAuthor = function(bookstore, author) {
-  var filteredList = [];
-  for (var i = 0; i < bookstore.length; i++) {
-    if (bookstoreApp.checkAuthor(bookstore[i], author)) {
-      filteredList.push(bookstore[i]);
-    }
-  }
-
-  return filteredList;
-
 };
 
 
@@ -197,25 +115,10 @@ bookstoreApp.filterByRange should use checkRange to return new list w/ books tha
 
 bookstoreApp.checkRange = function(book, lowerEnd, upperEnd){
   
-  if (book['price'] >= lowerEnd && book['price'] <= upperEnd) {
-    return true;
-  } else {
-    return false;
-  }
-  
 };
 
 
 bookstoreApp.filterByRange = function(bookstore, lowerEnd, upperEnd){
-
-  var filteredList = [];
-  for (var i = 0; i < bookstore.length; i++){
-    if (bookstoreApp.checkRange(bookstore[i], lowerEnd, upperEnd)) {
-      filteredList.push(bookstore[i]);
-    }
-  }
-
-  return filteredList;
 
 };
 

@@ -124,12 +124,12 @@ I know that range accomplishes a lot of that for me, so here's how I'm going to 
 
   var fourByFour = boardMaker(4);
   console.log(fourByFour); 
-  /*
+
     [[0,1,2,3]
     [0,1,2,3]
     [0,1,2,3]
     [0,1,2,3]]
-  */ 
+ 
 
 
 ```
@@ -140,16 +140,15 @@ We can also create any size board we want with just a flick of the wrist:
 
     var fiveByFive = boardMaker(5);
   console.log(fiveByFive); 
-  /*
+
    [[0,1,2,3,4]
     [0,1,2,3,4]
     [0,1,2,3,4]
     [0,1,2,3,4]]
-  */ 
 
   var nineByNine = boardMaker(9);
+
   console.log(nineByNine); 
-  /*
    [[0,1,2,3,4,5,6,7,8]
     [0,1,2,3,4,5,6,7,8]
     [0,1,2,3,4,5,6,7,8]
@@ -158,7 +157,6 @@ We can also create any size board we want with just a flick of the wrist:
     [0,1,2,3,4,5,6,7,8]
     [0,1,2,3,4,5,6,7,8]
     [0,1,2,3,4,5,6,7,8]]
-  */ 
 
 ```
 

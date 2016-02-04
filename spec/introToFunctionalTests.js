@@ -12,8 +12,8 @@
           var testBook = Bookstore[0];
           var endingBalance = Kanye.balance - testBook.price
           var testCase = bookstoreApp.subtractBookPrice(Kanye, testBook);
-          console.log(testCase);
-          console.log(endingBalance);
+          // console.log(testCase);
+          // console.log(endingBalance);
 
           expect(testCase).to.equal(endingBalance);
         }); 
@@ -42,7 +42,7 @@
            bookstoreApp.addBookToCart(Kanye, Bookstore, 'Lucky Jim');
            bookstoreApp.addBookToCart(Kanye, Bookstore, "Flaubert's Parrot");
            var testCase = bookstoreApp.deleteFromCart(Kanye, 'Lucky Jim');
-           console.log(testCase.title);
+           // console.log(testCase.title);
            expect(testCase.title).to.equal("Lucky Jim");
            expect(Kanye.cart.length).to.equal(1);
 

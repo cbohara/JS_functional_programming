@@ -12,7 +12,7 @@
 // Do not touch this variable, it is your Boostore and you can use this to test your code as you go along.
 
 var Bookstore = window.Bookstore;
-// console.log('bookstore',Bookstore); 
+console.log('bookstore',Bookstore); 
 // bookstore is an array of the books
 var Kanye = window.Kanye;
 // console.log('kanye',Kanye);
@@ -86,10 +86,9 @@ bookstoreApp.deleteFromCart = function(user, bookTitle){
  			user.cart.splice(i,1);
  		}
  	}
- 	// return the book that was deleted from the cart
+ 	// return the book that was deleted from the user cart
  	return returnBook;
 };
-
 
 /* 
 
@@ -106,6 +105,12 @@ filterByCategory will then use checkBookCategory to check each book in our Books
 */
 
 bookstoreApp.checkBookCategory = function(book, category){
+	// return boolean based on whether the books category matches the input 
+	// category
+	if(book.category === category)
+		return true;
+	else
+		return false;
  
 };
 

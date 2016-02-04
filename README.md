@@ -203,8 +203,7 @@ Your task is to build the functionality below  over the next two days so that we
 
 Here's a video of how the application is supposed to work: https://vimeo.com/154125213
 
-Follow the directions in your introToFunctional.js file. If you finish early, start the
-readings we sent out in the email earlier today.
+Follow the directions in your introToFunctional.js file.
 
 * [ ] Subtract Book Price
 * [ ] Add Book To Cart

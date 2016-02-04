@@ -38,17 +38,15 @@ deleteFromCart will go through the users cart and check whether the input title 
 
 bookstoreApp.subtractBookPrice = function(user, book){
  	if(user.balance < book.price){
- 		//alert not enough money to buy book
+ 		// alert not enough money to buy book
 		alert('There is not enough money in your account to buy this book');
 	}
 	else {
  	// subtract the price of a book from the users balance
  	user.balance -= book.price;
 	}
-	// console.log('user',user.balance);
 	return user.balance;
 };
-// bookstoreApp.subtractBookPrice(90, 100);
 												
 bookstoreApp.addBookToCart = function(user, bookStore, bookTitle){
 	// search through the Bookstore for the book with the matching title
@@ -74,18 +72,22 @@ bookstoreApp.emptyCart = function(user){
 		// empty user cart
 		user.cart = [];
 	}
-	//return the users cart
+	// return the users cart
 	return user.cart;
 };
 
 bookstoreApp.deleteFromCart = function(user, bookTitle){
  	// go through the users cart
  	for(var i = 0; i < user.cart.length; i++){
- 		// check whether the input title matches any of the books
+ 		// check whether the input title matches any of the books in the user cart
  		if(user.cart[i].title === bookTitle){
- 			// take that element out of the cart and return it to the user
+ 			// take the book out of the user cart if the input title matches
+ 			var returnBook = user.cart[i];
+ 			user.cart.splice(i,1);
  		}
  	}
+ 	// return the book that was deleted from the cart
+ 	return returnBook;
 };
 
 

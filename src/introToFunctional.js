@@ -12,7 +12,7 @@
 // Do not touch this variable, it is your Boostore and you can use this to test your code as you go along.
 
 var Bookstore = window.Bookstore;
-console.log('bookstore',Bookstore); 
+// console.log('bookstore',Bookstore); 
 // bookstore is an array of the books
 var Kanye = window.Kanye;
 // console.log('kanye',Kanye);
@@ -105,8 +105,8 @@ filterByCategory will then use checkBookCategory to check each book in our Books
 */
 
 bookstoreApp.checkBookCategory = function(book, category){
-	// return boolean based on whether the books category matches the input 
-	// category
+	// return boolean to determine if the books category matches the 
+	// user input category
 	if(book.category === category)
 		return true;
 	else
@@ -116,9 +116,19 @@ bookstoreApp.checkBookCategory = function(book, category){
 
 
 bookstoreApp.filterByCategory = function(bookStore, category){
-
+	// create new array that will contain the bookstore books that match the
+	// category the user is searching for
+	var categoryMatch = [];
+	for(var i = 0; i < bookStore.length; i++){
+	// use checkBookCategory to check each book in our Bookstore 
+	// if the bookstore book's category matched the user input category, 
+	// then add the book to return new array
+		if(bookstoreApp.checkBookCategory(bookStore[i].category,category)){
+			categoryMatch.push(bookStore[i]);
+		}
+	}
+	return categoryMatch;
 };
-
 
 /* 
 

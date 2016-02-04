@@ -12,9 +12,11 @@
 // Do not touch this variable, it is your Boostore and you can use this to test your code as you go along.
 
 var Bookstore = window.Bookstore;
-
+// console.log('bookstore',Bookstore); 
+// bookstore is an array of the books
 var Kanye = window.Kanye;
-
+// console.log('kanye',Kanye);
+// kanye is an object with 3 properties- balance, cart, and name
 /*
 
 Kanye wants to buy some books, so first we're going to focus on making sure our user can add books to their cart, and empty all the books if need be.
@@ -35,21 +37,55 @@ deleteFromCart will go through the users cart and check whether the input title 
 
 
 bookstoreApp.subtractBookPrice = function(user, book){
- 
+ 	if(user.balance < book.price){
+ 		//alert not enough money to buy book
+		alert('There is not enough money in your account to buy this book');
+	}
+	else {
+ 	// subtract the price of a book from the users balance
+ 	user.balance -= book.price;
+	}
+	// console.log('user',user.balance);
+	return user.balance;
 };
-
-
+// bookstoreApp.subtractBookPrice(90, 100);
+												
 bookstoreApp.addBookToCart = function(user, bookStore, bookTitle){
+	// search through the Bookstore for the book with the matching title
+	for(var i = 0; i < bookStore.length; i++){
+		if(bookStore[i].title === bookTitle){
+			// add the book to the users cart
+			user.cart.push(bookStore[i]);
+			// subtract the price of the book from the users balance
+			bookstoreApp.subtractBookPrice(user, bookStore[i]);
+		}
+	}
+	// return users cart
+	return user.cart;
 };
-
 
 bookstoreApp.emptyCart = function(user){
-
+	// first check to see if the users cart is empty
+	if(user.cart.length === 0){
+		// alert them that there are no books in the cart
+		alert('There are no books in the cart.');
+	}
+	else{
+		// empty user cart
+		user.cart = [];
+	}
+	//return the users cart
+	return user.cart;
 };
 
-
 bookstoreApp.deleteFromCart = function(user, bookTitle){
- 
+ 	// go through the users cart
+ 	for(var i = 0; i < user.cart.length; i++){
+ 		// check whether the input title matches any of the books
+ 		if(user.cart[i].title === bookTitle){
+ 			// take that element out of the cart and return it to the user
+ 		}
+ 	}
 };
 
 

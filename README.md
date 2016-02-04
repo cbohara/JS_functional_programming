@@ -113,6 +113,7 @@ I know that range accomplishes a lot of that for me, so here's how I'm going to 
      return board;
    }
 
+```
 
   The reason we can pass the num variable to our range function is because it is in the local
   scope of the boardMaker function. It has 'child scope' privileges, which means 
